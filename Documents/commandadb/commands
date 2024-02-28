@@ -1,0 +1,51 @@
+# Para desinstalar digite o comando
+
+```sh
+adb uninstall br.com.theos.eclesialcard
+```
+
+# Para filtrar (grep) somente o pacote digite o comando no macOS
+
+```sh
+adb shell logcat | grep "ReactNativeJS"
+```
+
+Ativar porta do App Reactotron
+
+```bash
+adb reverse tcp:9090 tcp:9090
+```
+
+# Para filtrar(grep) somente o pacote digite o comando no Win
+
+```sh
+adb shell logcat | Select-String -Pattern "ReactNativeJS"
+```
+
+# Para espelhar o aplicativo Android 
+usando a ferramenta screen copy 
+([scrcpy](https://github.com/Genymobile/scrcpy)), digite o comando
+
+```sh
+scrcpy
+```
+
+# Listar todos os pacotes
+
+```bash
+adb shell pm list packages
+```
+
+# Instalar varios pacotes de uma vez Win
+
+```bash
+Get-ChildItem *.apk | ForEach-Object { adb install -r $_.FullName }
+```
+
+# Instalar todos os apk de uma vez
+
+```sh
+for file in *.apk; do
+    adb install -r -d "$file"
+done
+```
