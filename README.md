@@ -1,4 +1,4 @@
-# Testing and debugging efficiency with ADB commands
+# Efficiency with ADB commands
 <div align="center">
     
 
