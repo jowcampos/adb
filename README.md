@@ -107,3 +107,37 @@ Monitor device performance by capturing logs using ADB and analyzing metrics suc
 
 Compatibility Testing
 Utilize ADB to install and test apps across multiple Android devices and versions. Capture logs and screenshots to identify compatibility issues and ensure seamless user experience across devices.
+
+## Getting Started
+
+To use ADB, download the [Android SDK Platform Tools](https://developer.android.com/studio/releases/platform-tools) package, extract it, and add the `platform-tools` directory to your `PATH`. Activate Developer Options on your device and enable USB debugging. With the device connected via USB, run `adb devices` to verify the connection.
+
+## Connecting Over Wi-Fi
+
+ADB supports debugging over Wi-Fi. Start by running `adb tcpip 5555` while the device is connected via USB. Obtain the device's IP address and connect to it using `adb connect <device_ip>`. To revert back to USB mode, execute `adb usb`.
+
+## File Transfer
+
+Use `adb push <local> <remote>` to copy files from your computer to the device and `adb pull <remote> <local>` to retrieve files. This is useful for transferring logs or test assets during debugging.
+
+## Managing the ADB Server
+
+If you experience issues with device connections, restart the ADB server with:
+
+```sh
+adb kill-server
+adb start-server
+```
+
+You may also specify a different port with `adb -P <port> start-server` when needed.
+
+## Capturing Logs
+
+For detailed debugging information, redirect log output to a file:
+
+```sh
+adb logcat > device.log
+```
+
+This approach helps preserve logs for later analysis or when sharing issues with other team members.
+
